@@ -11,7 +11,7 @@ const LoginScreen = () => {
 
   return (
     <View style={tw`flex-1 items-center`}>
-      <View style={tw`w-50 h-50 mt-80 bg-white items-center justify-center rounded-xl`}>
+      <View style={tw`w-50 h-50 mt-60 bg-white items-center justify-center rounded-xl`}>
         <Image source={require('../logo.jpeg')} style={tw`h-40 w-40`} />
       </View>
       <TouchableOpacity style={tw`absolute bottom-40 w-52 bg-pink-500 p-4 rounded-2xl items-center`} onPress={signInWithGoogle}>

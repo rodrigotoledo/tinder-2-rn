@@ -5,6 +5,7 @@ import { auth } from '../firebase';
 
 const AuthContext = createContext({})
 const config = {
+  androidClientId: '867429018231-vluq72mu97cas8iu0u8udilfj0gbuanv.apps.googleusercontent.com',
   iosClientId: "867429018231-5duq2udq586vdr78tpa09bgih2sepltj.apps.googleusercontent.com",
   scopes: ["profile", "email"],
   permissions: ["public_profile", "email", "gender", "location"]
