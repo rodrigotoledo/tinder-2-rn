@@ -15,10 +15,12 @@ const CartScreen = () => {
   const [address, setAddress] = useState(null)
   const [phone, setPhone] = useState(null)
   const [scheduledAt, setScheduledAt] = useState(null)
+  // const uid = user.uid;
+  const uid = 'lhYfNUOukkVvIvrI9sdKqvpOh0n1';
   useEffect(async () => {
     try {
       axios.get('https://sheltered-stream-66928.herokuapp.com/api/carts', {
-        params: { uuid: user.uid }
+        params: { uuid: uid }
       })
       .then(function (response) {
         if(response.data.length === 0){
@@ -38,7 +40,7 @@ const CartScreen = () => {
 
   const remove = (product_id) => {
     axios.post('https://sheltered-stream-66928.herokuapp.com/api/carts', {
-      uuid: user.uid,
+      uuid: uid,
       product_id: product_id,
       remove: true
     })
@@ -54,7 +56,7 @@ const CartScreen = () => {
       Alert.alert('Preencha os campos para agendar')
     }else{
       axios.post('https://sheltered-stream-66928.herokuapp.com/api/carts/finish', {
-        uuid: user.uid,
+        uuid: uid,
         name: name,
         phone: phone,
         address: address,

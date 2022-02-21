@@ -3,7 +3,6 @@ import { View, Text, Linking, SafeAreaView, TouchableOpacity, Image } from 'reac
 import { useNavigation } from '@react-navigation/native'
 import useAuth from '../hooks/useAuth';
 import tw from 'twrnc';
-import { Ionicons } from "@expo/vector-icons";
 import Swiper from 'react-native-deck-swiper';
 import axios from 'axios';
 import Header from '../components/Header';
@@ -13,6 +12,8 @@ const HomeScreen = () => {
   const { user, logout } = useAuth()
   const [cards, setCards] = useState([])
   const [products, setProducts] = useState([])
+  // const uid = user.uid;
+  const uid = 'lhYfNUOukkVvIvrI9sdKqvpOh0n1';
   //
   useEffect(async () => {
     try {
@@ -26,19 +27,6 @@ const HomeScreen = () => {
   useEffect(() => {
     console.log(products)
   },[products])
-
-  const openWhatsApp = () => {
-  // Open the custom settings if the app has one
-    let url =
-      "whatsapp://send?phone=553334931091";
-    Linking.openURL(url)
-      .then(data => {
-        console.log("WhatsApp Opened successfully " + data);
-      })
-      .catch(() => {
-        alert("Make sure WhatsApp installed on your device");
-      });
-  }
 
   return (
     <SafeAreaView style={tw`flex-1`}>
@@ -61,7 +49,8 @@ const HomeScreen = () => {
             onSwipedLeft={(swiper) => {
               const product = cards[swiper]
               axios.post('https://sheltered-stream-66928.herokuapp.com/api/carts', {
-                uuid: user.uid,
+                uuid: uid,
+                // uuid: user.uid,
                 product_id: product.id,
                 remove: true
               })
@@ -75,7 +64,8 @@ const HomeScreen = () => {
             onSwipedRight={(swiper) => {
               const product = cards[swiper]
               axios.post('https://sheltered-stream-66928.herokuapp.com/api/carts', {
-                uuid: user.uid,
+                uuid: uid,
+                // uuid: user.uid,
                 product_id: product.id
               })
               .then(function (response) {

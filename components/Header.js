@@ -18,13 +18,13 @@ const Header = () => {
         console.log("WhatsApp Opened successfully " + data);
       })
       .catch(() => {
-        alert("Make sure WhatsApp installed on your device");
+        alert("Ops, WhatsApp não está instalado no seu celular");
       });
   }
   return (
     <View style={tw`flex-row items-center justify-between p-5`}>
       <TouchableOpacity onPress={logout}>
-        <Image source={{ uri: user.photoURL}} style={tw`h-10 w-10 rounded-full`} />
+        {/* <Image source={{ uri: user.photoURL}} style={tw`h-10 w-10 rounded-full`} /> */}
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.push("Home")} style={tw`p-2 bg-white rounded-xl`}>
         <Image source={require('../logo.jpeg')} style={tw`h-14 w-14`} />
